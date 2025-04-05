@@ -11,9 +11,10 @@ router.post("/", async (req, res) => {
   try {
     // Retrieve user data from the body
     const { tripId, passengers, userEmail, userid } = req.body;
+
     console.log("Reservation data:", req.body);
+
     // 1. Get the trip
-    
     const trip = await Trip.findById(tripId);
     if (!trip) return res.status(404).json({ message: "Trajet non trouvé" });
 
@@ -43,7 +44,7 @@ router.post("/", async (req, res) => {
     res.status(500).json({ message: "Erreur serveur" });
   }
 });
-
+  
 router.get("/check", async (req, res) => {
     try {
       const { tripId, userId } = req.query;

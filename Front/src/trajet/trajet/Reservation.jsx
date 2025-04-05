@@ -40,28 +40,28 @@ export default function Reservation({ trip, user }) {
 
   const handleClick = async () => {
     const token = localStorage.getItem("token");
-
+  
     if (!token) {
       alert("Veuillez vous connecter pour réserver.");
       return;
     }
-
+  
     const decodedToken = JSON.parse(atob(token.split('.')[1])); 
     const userEmail = decodedToken.email;
     const userId = decodedToken.id;
-
+  
     if (userEmail === trip.ownerEmail) {
       alert("Vous ne pouvez pas réserver votre propre trajet !");
       return;
     }
-
+  
     const tripId = trip._id;
+  
     try {
       const response = await fetch("http://localhost:5000/reservation", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",  // Ensure correct header
-          Authorization: `Bearer ${token}`
+          "Content-Type": "application/json", // Ensure correct header
         },
         body: JSON.stringify({
           tripId,
@@ -70,9 +70,9 @@ export default function Reservation({ trip, user }) {
           userid: userId
         }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         alert("Réservation réussie !");
         setReservationStatus(true);  // Update reservation status after success
@@ -84,7 +84,7 @@ export default function Reservation({ trip, user }) {
       alert("Une erreur est survenue.");
     }
   };
-
+  
   const formatTripDate = (dateString) => {
     const date = new Date(dateString);
     if (isNaN(date)) return "Date invalide";
