@@ -1,0 +1,270 @@
+.registerContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  min-width: 700px;
+}
+.signupContainer {
+  display: flex;
+  margin: 30px;
+  align-self: center;
+}
+
+.registerCard {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 1200px;
+  height: auto;
+}
+
+.registerTitle {
+  text-align: center;
+  color: #054652;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0 40px;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 3rem;
+  padding: 0 5px;
+  
+  
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 250px;
+  padding: 10px;
+}
+
+.pdp {
+  align-self: stretch;
+  padding-left: 35px;
+  margin-top: 20px;
+  color: #0496fe;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  color: #d4d4d4;
+}
+
+.hidden {
+  display: none;
+}
+
+.photoActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.uploadBtn,
+.deleteBtn {
+  color: white;
+  background-color: #0496fe;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.uploadBtn:hover {
+  background-color: #037dd4;
+}
+
+.deleteBtn {
+  background-color: #ff6347;
+}
+
+.deleteBtn:hover {
+  background-color: #dc2626;
+}
+
+.registerForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.input:focus, input:hover {
+  border: #0496fe solid 2px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: hsla(0, 0%, 0%, 0.7);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.idPhotoSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.idPhotoSection label {
+  font-size: 18px;
+  color: #CD0000;
+}
+
+.idPhotoSection .uploadBtn {
+  width: max-content;
+  color: hsla(0, 0%, 0%, 0.7);
+  font-size: 18px;
+  background-color: #f3f4f6;
+  border-radius: 15px;
+  border: 2px solid #d1d5db;
+}
+
+.idPhotoSection .uploadBtn:hover {
+  border: #0496fe solid 2px;
+}
+
+.button {
+  width: max-content;
+  width: 200px;
+  background: #0496fe;
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  margin: 50px auto 0;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background: #037dd4;
+}
+
+.fileName {
+  font-size: 16px;
+  color: #333;
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.contactLabel {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #0496fe;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.iconWrapper:hover {
+  transform: scale(1.2);
+}
+
+.socialicon {
+  font-size: 40px;
+  color: #0496fe; /* Icon color */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
