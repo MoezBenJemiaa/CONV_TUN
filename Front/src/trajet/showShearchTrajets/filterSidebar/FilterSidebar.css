@@ -1,0 +1,64 @@
+.filter-sidebar {
+  width: 250px;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.clear-filters {
+  font-size: 12px;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.clear-filters:hover {
+  text-decoration: underline;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+}
+
+.filter-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.count {
+  margin-left: auto;
+  font-size: 12px;
+  color: #666;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: #dcdcdc;
+  margin: 10px 0;
+}

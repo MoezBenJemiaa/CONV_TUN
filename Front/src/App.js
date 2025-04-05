@@ -7,6 +7,7 @@ import HomePage from "./Home/home";
 import Verification from "./Verification/Verification";
 import Header from "./header/header1";
 import ShowTrajets from "./trajet/showTrajets/ShowTrajets";
+import ShowShearchTrajets from "./trajet/showShearchTrajets/ShowShearchTrajet";
 import Pagetrajet from "./trajet/trajet/PageTrajet";
 import PublishTrip from "./trajet/PublishTrip/PublishTrip";
 /*import Footer from "./Footer/footer";*/
@@ -41,7 +42,7 @@ function App() {
             <Route path="/" element={  <HomePage /> }/>
             <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>
             <Route path="/Reservations/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>
-            <Route path="/Trajets/:ids" element={  <ShowTrajets/  > }/>
+            <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/  > }/>
             <Route path="/trip/:id" element={  <Pagetrajet/  > }/>
             <Route path="/PublishTrip" element={ <ProtectedRoute> <PublishTrip /> </ProtectedRoute>}/>
           </Routes>
