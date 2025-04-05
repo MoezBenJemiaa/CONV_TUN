@@ -33,8 +33,6 @@
   display: flex;
   gap: 3rem;
   padding: 0 5px;
-  
-  
 }
 
 .profileSection {
@@ -64,8 +62,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
 }
 
 .img {
@@ -131,26 +127,43 @@
 .input {
   width: 100%;
   padding: 0.75rem;
-  background-color: #f3f4f6;
+  color: hsla(0, 0%, 0%, 0.65);
+  background-color: hsla(0, 0%, 0%, 0.05);
   border: 2px solid #d1d5db;
   border-radius: 8px;
   font-size: 18px;
   box-sizing: border-box;
 }
 
-.input:focus, input:hover {
+.input:focus,
+input:hover {
   border: #0496fe solid 2px;
   outline: none;
 }
 
 .input::placeholder {
-  color: hsla(0, 0%, 0%, 0.7);
+  color: hsla(0, 0%, 0%, 0.4);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.password {
+  position: relative;
+  
+}
+
+.passwordToggleIcon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: hsla(0, 0%, 0%, 0.35);
+  font-size: 18px;
 }
 
 .idPhotoSection {
@@ -163,7 +176,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .idPhotoSection label {
   font-size: 18px;
-  color: #CD0000;
+  color: #cd0000;
 }
 
 .idPhotoSection .uploadBtn {
