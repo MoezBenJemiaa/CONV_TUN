@@ -1,0 +1,166 @@
+/* Global Styles */
+
+  
+  /* Car Image Styles */
+  .carimg {
+    height: 350px;
+  }
+  
+  .carimg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Form Styles */
+  .form {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+    height: 60px;
+    background-color: #F1F1F1;
+    border-radius: 40px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+  }
+  
+  .inputRow {
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  .inputGroup span svg {
+    color: black;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+  
+  .form button {
+    height: 60px;
+    margin-right: 0;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    background-color: #2EA0FD;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form button:hover {
+    background-color: #0049a9;
+  }
+  
+  /* Features Styles */
+  .features {
+    margin: 50px;
+  }
+  
+  .features .features_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 100px auto;
+  }
+  
+  .feat {
+    text-align: left;
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .feat svg {
+    color: #2EA0FD;
+  }
+  
+  .feat h3 {
+    font-weight: 600;
+    margin: 30px 0;
+  }
+  
+  .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+  }
+  
+  /* About Styles */
+  .about .about_container {
+    padding: 100px;
+    height: 400px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .about .about_container img {
+    width: 500px;
+    height: 300px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+  
+  .ktiba {
+    width: 400px;
+  }
+  
+  .ktiba h1 {
+    font-weight: 600;
+    margin: 30px 0;
+    color: #2EA0FD;
+    text-align: center;
+  }
+  
+  .ktiba p {
+    text-align: center;
+    line-height: 1.5;
+    color: #777;
+  }
+  .mapOverlay {
+    position: fixed;  /* Fix position on the screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background: rgba(0, 0, 0, 0.2); /* Transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above everything */
+  }
+  
+  .mapContainer {
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden; /* Prevents map overflow */
+  }
+.CiMap{
+    width: 35px;
+    height: 35px;
+  }
+  

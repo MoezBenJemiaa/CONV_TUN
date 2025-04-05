@@ -1,0 +1,79 @@
+.passengersContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #01384d;
+}
+
+.passengerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.passengerItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  border: none; /* Remove button borders */
+  background: transparent; /* Make background transparent */
+  width: 100%;
+  text-align: left;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  outline: none; /* Remove focus outline */
+  border-radius: 20px;
+  margin-bottom: 2px;
+}
+
+.passengerItem:hover {
+  background-color: #f0f0f0; /* Highlight on hover */
+}
+
+
+.passengerItem:last-child {
+  border-bottom: none;
+}
+
+.profileIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #d4d4d4;
+  margin-right: 10px;
+}
+
+.passengerInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures left alignment */
+  justify-content: flex-start;
+  
+}
+
+
+.passengerName {
+  font-weight: bold;
+  font-size: 16px;
+  color: #01384d;
+}
+
+.route {
+  color: #666;
+  font-size: 14px;
+}
+
+.chevronIcon {
+  color: #aaa;
+}

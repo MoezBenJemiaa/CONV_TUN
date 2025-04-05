@@ -1,0 +1,259 @@
+.container {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 2rem;
+}
+
+hr {
+    margin: 30px 0;
+    height: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0000001a;
+}
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+.title {
+    text-align: center;
+    color: #054652;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.section {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.champ {
+    display: flex;
+    margin-bottom: 10px;
+}
+.champ p {
+    margin-left: -20px;
+}
+.champ2 {
+    display: flex;
+    justify-content: space-evenly;
+}
+.champ2 .champ input {
+    width: 350px;
+}
+
+
+.sectionTitle {
+    color: #054652;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #054652;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.departure {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.stopContainer {
+    background: white;
+    padding: 1rem;
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.stopContainer h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #0496FE;
+    font-size: 1.2rem;
+}
+
+.stopContainer input {
+    background-color: transparent;
+    border-color: #0496FE;
+}
+
+.stopContainer input::placeholder {
+    color: #0496FE;
+}
+
+
+
+/*.stopInputGroup {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}*/
+
+@media (min-width: 640px) {
+    .stopInputGroup {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stopInputGroup input:last-child {
+        grid-column: span 2;
+    }
+}
+
+.arrival {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    background-color: #0000001a;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 550;
+    box-sizing: border-box;
+}
+
+
+.textarea {
+    width: 100%;
+    padding: 0.75rem;
+    height: 100px;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.addButton {
+    background: #0496FE;
+    color: white;
+    border: none;
+    padding: 0.65rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.addButton:hover {
+    background: #1d4ed8;
+}
+
+.checkboxLabel, .radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 550;
+    cursor: pointer;
+    color: #054652;
+}
+
+.radioLabel {
+    margin-bottom: 0.8rem;
+}
+
+.reservationType {
+    margin-bottom: 1.5rem;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cancelButton {
+    width: 150px;
+    background: #00489B;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.confirmButton {
+    width: 150px;
+    background: #0496FE;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.cancelButton:hover {
+    background: #003d82;
+}
+
+.confirmButton:hover {
+    background: #0079d0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mapOverlay {
+    position: fixed;  /* Fix position on the screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background: rgba(0, 0, 0, 0.2); /* Transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above everything */
+  }
+  
+  .mapContainer {
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden; /* Prevents map overflow */
+  }
+.CiMap{
+    width: 50px;
+    height: 50px;
+  }
+  

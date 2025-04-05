@@ -1,0 +1,182 @@
+import { React, useState, useEffect } from "react";
+import { Zap } from "lucide-react";
+import { FaUserCircle } from "react-icons/fa";
+import { TbCalendarTime } from "react-icons/tb";
+import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
+import TripMap from "./TripMap";
+import styles from "./Reservation.module.css";
+
+export default function Reservation({ trip, user }) {
+  const [passengers, setPassengers] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(trip.price);
+  const [reservationStatus, setReservationStatus] = useState(false);
+
+  useEffect(() => {
+    const checkReservationStatus = async () => {
+      const token = localStorage.getItem("token");
+      const decodedToken = token ? JSON.parse(atob(token.split(".")[1])) : null;
+      
+      if (decodedToken) {
+        const userId = decodedToken.id;
+        const tripId = trip._id;
+
+        try {
+          const response = await fetch(
+            `http://localhost:5000/reservation/check?tripId=${tripId}&userId=${userId}`
+          );
+          const data = await response.json();
+
+          if (data.reserved) {
+            setReservationStatus(true);
+          }
+        } catch (error) {
+          console.error("Error checking reservation status:", error);
+        }
+      }
+    };
+
+    checkReservationStatus();
+  }, [trip._id]);
+
+  const handleClick = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Veuillez vous connecter pour réserver.");
+      return;
+    }
+
+    const decodedToken = JSON.parse(atob(token.split('.')[1])); 
+    const userEmail = decodedToken.email;
+    const userId = decodedToken.id;
+
+    if (userEmail === trip.ownerEmail) {
+      alert("Vous ne pouvez pas réserver votre propre trajet !");
+      return;
+    }
+
+    const tripId = trip._id;
+    try {
+      const response = await fetch("http://localhost:5000/reservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",  // Ensure correct header
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          tripId,
+          passengers,
+          userEmail,
+          userid: userId
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Réservation réussie !");
+        setReservationStatus(true);  // Update reservation status after success
+      } else {
+        alert(data.message || "Erreur lors de la réservation.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la réservation :", error);
+      alert("Une erreur est survenue.");
+    }
+  };
+
+  const formatTripDate = (dateString) => {
+    const date = new Date(dateString);
+    if (isNaN(date)) return "Date invalide";
+    return new Intl.DateTimeFormat("fr-FR", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    }).format(date);
+  };
+
+  const fullName = `${user.firstName || ""} ${user.lastName || ""}`.trim();
+  const capitalizedDate = trip?.date
+    ? formatTripDate(trip.date).charAt(0).toUpperCase() +
+      formatTripDate(trip.date).slice(1)
+    : "Date non disponible";
+
+  const tripDetails = {
+    price: trip.price,
+    maxPassengers: trip.maxPassengers,
+  };
+
+  const handleIncrease = () => {
+    if (passengers < tripDetails.maxPassengers) {
+      setPassengers(passengers + 1);
+      setTotalPrice((passengers + 1) * tripDetails.price);
+    }
+  };
+
+  const handleDecrease = () => {
+    if (passengers > 1) {
+      setPassengers(passengers - 1);
+      setTotalPrice((passengers - 1) * tripDetails.price);
+    }
+  };
+
+  return (
+    <div className={styles.reservationContainer}>
+      <div className={styles.date}>{capitalizedDate}</div>
+
+      <TripMap departure={trip.departure} arrival={trip.arrival} />
+
+      <div className={styles.userInfo}>
+        {user.profilePic ? (
+          <img
+            src={"data:image/jpeg;base64," + user.profilePic}
+            alt="Profile"
+            className={styles.pdp}
+          />
+        ) : (
+          <FaUserCircle className={styles.userIcon} />
+        )}
+        <span className={styles.userName}>{fullName}</span>
+      </div>
+
+      <div className={styles.passengerInfo}>
+        <span className={styles.passenger}>
+          {passengers} passager{passengers > 1 ? "s" : ""}
+        </span>
+        <span className={styles.price}>
+          {Math.floor(totalPrice)}
+          <span className={styles.priceSuperscript}>
+            {`,` + ((totalPrice % 1) * 1000).toFixed(0)}
+          </span>{" "}
+          DT
+        </span>
+
+        <div className={styles.buttons}>
+          <FiMinusCircle
+            className={`${styles.icon} ${
+              passengers <= 1 ? styles.disabledIcon : styles.activeIcon
+            }`}
+            onClick={passengers > 1 ? handleDecrease : undefined}
+          />
+          <FiPlusCircle
+            className={`${styles.icon} ${
+              passengers >= tripDetails.maxPassengers
+                ? styles.disabledIcon
+                : styles.activeIcon
+            }`}
+            onClick={passengers < tripDetails.maxPassengers ? handleIncrease : undefined}
+          />
+        </div>
+      </div>
+
+      <button className={styles.reservationButton} onClick={handleClick}>
+        {reservationStatus ? (
+          <Zap className={styles.icon} /> // Show Zap icon if reservation is successful
+        ) : (
+          <TbCalendarTime className={styles.icon} /> // Show calendar icon if not reserved
+        )}
+        {reservationStatus ? "Réservation effectuée" : "Demande de réservation"}
+      </button>
+    </div>
+  );
+}

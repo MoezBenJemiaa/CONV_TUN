@@ -1,0 +1,192 @@
+.profileCard {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 380px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #054652;
+  background: none;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+
+}
+
+.profileHeader:hover {
+  background-color: #f0f0f0; /* Optional: Add hover effect */
+}
+
+.userIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  color: #d4d4d4;
+}
+
+.chevronIcon {
+  font-size: 18px;
+  margin-left: 10px; 
+  align-self: flex-end;
+  color: #aaa;
+}
+
+.userName {
+  font-size: 18px;
+  width: 100%;
+  
+  text-align: left;
+}
+
+.verifiedInfo {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 8px;
+}
+
+.verifiedItem {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: hsla(0, 0%, 0%, 0.55);
+}
+
+.icon {
+  width: 20px;
+  color: #0496FE;
+  margin-right: 6px;
+}
+
+.checkGreen {
+  width: 20px;
+  color: #28a745;
+  margin-right: 6px;
+}
+
+.checkRed{
+  width: 20px;
+  color: #ec1313;
+  margin-right: 6px;
+}
+
+.description {
+  font-size: 14px;
+  color: hsla(0, 0%, 0%, 0.55);
+  margin: unset;
+  max-height: 60px; /* Restrict height to 3 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show only 3 lines */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  transition: max-height 0.3s ease-in-out;
+  margin-bottom: 5px;
+  padding: 0 8px;
+}
+
+.expanded {
+  max-height: none;
+  overflow: visible;
+  margin-bottom: 20px;
+}
+
+.readMore {
+  color: #0496FE;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 5px; 
+  align-self: flex-end;
+
+}
+
+.readMore:hover {
+  color: #0056b3;
+}
+
+
+
+.divider {
+  border: none;
+  border-top: 0.5px solid #e5e7eb;
+  margin: 10px 0;
+  height: 1px;
+}
+
+.additionalInfo {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 8px;
+}
+
+.additionalInfo li {
+  margin-bottom: 6px;
+  color: hsla(0, 0%, 0%, 0.55);
+  vertical-align: middle ;
+  
+}
+
+.iconInfo {
+  width: 20px;
+  height: 20px;
+  color: hsla(0, 0%, 0%, 0.425); 
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.contactButton {
+  background-color: #ffffff;
+  color: #0496FE;
+  border: solid #dddddd 1px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 12px;
+  width:fit-content;
+}
+
+.contactButton:hover {
+  background-color: #ebebeb;
+}
+
+.contactIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+.pdp {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #d4d4d4; /* fallback bg like the icon */
+}
