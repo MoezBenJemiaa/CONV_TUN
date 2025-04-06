@@ -54,7 +54,7 @@ function UserProfile() {
           <FaUserCircle className={styles.profileIcon} />
         )}
         <div>
-          <h1 className={styles.title}>{user.firstName}</h1>
+          <h1 className={styles.title}>{user.firstName+" "+user.lastName}</h1>
           <p className={styles.username}>Age: {user.age}</p>
         </div>
       </div>

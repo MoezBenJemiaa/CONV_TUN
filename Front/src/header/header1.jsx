@@ -193,21 +193,6 @@ function Navbar() {
           )}
         </div>
 
-        <div className={styles.profile_container} ref={dropdownRef}>
-          {profilePic ? (
-            <img
-              src={profilePic}
-              alt="Profile"
-              className={styles.profile_image}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            />
-          ) : (
-            <FaUserCircle
-              className={styles.icon}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            />
-          )}
-        </div>
         
         <ChevronDown
           onClick={() => setDropdownOpen(!dropdownOpen)}
