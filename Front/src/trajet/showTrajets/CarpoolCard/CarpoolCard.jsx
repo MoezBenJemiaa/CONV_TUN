@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaStar } from "react-icons/fa"; // Import star icon
-import "./CarpoolCard.css";
+import styles from "./CarpoolCard.module.css"; // Use CSS module
 
 const CarpoolCard = ({ rideId }) => {
   const [ride, setRide] = useState(null);
@@ -63,45 +63,41 @@ const CarpoolCard = ({ rideId }) => {
   if (!ride) return <p>Trip not found</p>;
 
   return (
-    <div className="carpool-card" onClick={() => window.location.href = `/trip/${rideId}`}>
-      <div className="trip-info">
-        <div className="time-location">
-          <span className="time">{ride.departureTime || "N/A"}</span>
-          <span className="location">{extractLocationName(ride.departure?.name)}</span>
+    <div className={styles.carpoolCard} onClick={() => window.location.href = `/trip/${rideId}`}>
+      <div className={styles.tripInfo}>
+        <div className={styles.timeLocation}>
+          <span className={styles.time}>{ride.departureTime || "N/A"}</span>
+          <span className={styles.location}>{extractLocationName(ride.departure?.name)}</span>
         </div>
 
-        
-        <div className="trip-duration">
-          <div className="line-wrapper">
-          <div className="circle-start" />
-          <div className="line" />
-          <span className="duration">{calculateDuration(ride.departureTime, ride.arrivalTime)}</span>
-          <div className="line" />
-          <div className="circle-end" />
+        <div className={styles.tripDuration}>
+          <div className={styles.lineWrapper}>
+            <div className={styles.circleStart} />
+            <div className={styles.line} />
+            <span className={styles.duration}>{calculateDuration(ride.departureTime, ride.arrivalTime)}</span>
+            <div className={styles.line} />
+            <div className={styles.circleEnd} />
+          </div>
         </div>
 
-
-        </div>
-
-        <div className="time-location">
-          <span className="time">{ride.arrivalTime || "N/A"}</span>
-          <span className="location">{extractLocationName(ride.arrival?.name)}</span>
+        <div className={styles.timeLocation}>
+          <span className={styles.time}>{ride.arrivalTime || "N/A"}</span>
+          <span className={styles.location}>{extractLocationName(ride.arrival?.name)}</span>
         </div>
         
-        <div className="price">{ride.price ? `${ride.price} DT` : "Price not available"}</div>
+        <div className={styles.price}>{ride.price ? `${ride.price} DT` : "Price not available"}</div>
       </div>
 
-      <div className="user-section">
-        <div className="user-profile">
-          <img className="avatar" src={"data:image/jpeg;base64," + (user?.profilePic || "/default-avatar.png")} alt="User Avatar" />
-          <span className="username">{user?.firstName} {user?.lastName}</span>
+      <div className={styles.userSection}>
+        <div className={styles.userProfile}>
+          <img className={styles.avatar} src={"data:image/jpeg;base64," + (user?.profilePic || "/default-avatar.png")} alt="User Avatar" />
+          <span className={styles.username}>{user?.firstName} {user?.lastName}</span>
         </div>
 
-
-        <div className="preferences">
+        <div className={styles.preferences}>
           {ride.preferences?.length > 0 ? (
             ride.preferences.map((pref, index) => (
-              <span key={index} className="pref">{pref}</span>
+              <span key={index} className={styles.pref}>{pref}</span>
             ))
           ) : (
             <span>No preferences</span>

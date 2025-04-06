@@ -1,9 +1,13 @@
 .filter-sidebar {
+  display: flex;
+  flex-direction: column;
   width: 250px;
-  background: #f7f7f7;
+  height: max-content;
+  background: hsla(0, 0%, 0%, 0.03);
   padding: 15px;
   border-radius: 8px;
   font-family: Arial, sans-serif;
+  margin: 0;
 }
 
 .filter-header {
@@ -11,12 +15,13 @@
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 10px;
+  color: hsla(0, 0%, 0%, 0.65);
 }
 
 .clear-filters {
-  font-size: 12px;
+  font-size: 14px;
   color: #007bff;
   cursor: pointer;
   text-decoration: none;
@@ -27,13 +32,32 @@
 }
 
 .filter-section {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+  border-top: hsla(0, 0%, 0%, 0.1) solid;
+}
+
+.filter-section:first-child {
+  border: none;
+  padding-top: 5px;
+}
+
+.filter-section:last-child {
+  padding-bottom: 5px;
+}
+
+.filter-section label {
+  color: #005f73;
+  font-weight: bold;
 }
 
 .filter-title {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 8px;
+  color: hsla(0, 0%, 0%, 0.65);
 }
 
 label {
@@ -57,8 +81,9 @@ input[type="radio"] {
 }
 
 hr {
+  appearance: none;
   border: none;
   height: 1px;
   background: #dcdcdc;
-  margin: 10px 0;
+  margin: 0;
 }

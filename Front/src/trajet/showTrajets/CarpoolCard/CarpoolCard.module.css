@@ -1,0 +1,138 @@
+.carpoolCard {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
+  width: 100%;
+  min-height: 150px;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.tripInfo {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.timeLocation {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: bold;
+  color: #005f73;
+}
+
+.location {
+  font-size: 16px;
+  color: #000000;
+}
+
+.tripDuration {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: hsla(0, 0%, 0%, 0.65);
+  font-size: 14px;
+  min-width: 35%;
+  padding-right: 10px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0px 2px black;
+}
+
+.price {
+  min-width: 90px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #005f73;
+  text-align: center;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.divider {
+  width: 35px;
+  margin: 0;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: bold;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+.preferences {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #a0a0a0;
+  font-weight: bold;
+}
+
+.pref {
+  font-size: 14px;
+  padding: 5px 8px;
+}
+
+.lineWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.circleStart,
+.circleEnd {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #005f73;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.line {
+  flex: 1;
+  height: 4px;
+  background-color: #000000;
+}
+
+.duration {
+  font-size: 16px;
+  color: #8c8f92;
+  font-weight: bold;
+  white-space: nowrap;
+}

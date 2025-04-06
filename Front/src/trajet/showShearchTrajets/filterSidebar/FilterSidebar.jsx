@@ -56,8 +56,6 @@ const FilterSidebar = ({ filters, setFilters, rides }) => {
         ))}
       </div>
 
-      <hr />
-
       {["departureTimes", "services"].map((category, index) => (
         <div className="filter-section" key={category}>
           <div className="filter-title">{["Heure de départ", "Services"][index]}</div>
