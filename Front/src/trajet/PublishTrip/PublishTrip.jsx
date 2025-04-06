@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import LocationSelectorMap from "./LocationSelectorMap";
 import styles from "./PublishTrip.module.css";
+import { CiMap } from "react-icons/ci";
 import { MapIcon } from "lucide-react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
@@ -169,28 +170,18 @@ function PublishTrip() {
       .forEach((input) => (input.value = ""));
   };
 
-  const [today, setToday] = useState("");
-
-  useEffect(() => {
-    // Get today's date in the format YYYY-MM-DD
-    const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate()); // Set the current date to today
-    const formattedDate = currentDate.toISOString().split("T")[0]; // Format the date as 'yyyy-mm-dd'
-    setToday(formattedDate); // Update the state with today's date
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <h2 className={styles.title}>Publier un trajet</h2>
 
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Détails du trajet</h3>
+          <h3 className={styles.sectionTitle}>Info trajet</h3>
 
           <div className={styles.departure}>
             <div className={styles.champ}>
               {/*<input type="text" placeholder="Depart" className={styles.input} />
-                <p>.</p> */}
+               */}
 
               <input
                 type="text"
@@ -219,7 +210,7 @@ function PublishTrip() {
                 <h5>Arrêt {index + 1}</h5>
                 <input
                   type="text"
-                  placeholder="Lieu d'arrêt"
+                  placeholder="Petit d'arrêt"
                   className={styles.input}
                   value={stop.name}
                   onChange={(e) =>
@@ -246,7 +237,7 @@ function PublishTrip() {
 
             <div className={styles.champ}>
               {/*<input type="text" placeholder="Arrivee" className={styles.input} />
-                <p>.</p>*/}
+               */}
               <input
                 type="text"
                 placeholder="Arrivée"
@@ -256,7 +247,7 @@ function PublishTrip() {
                   setArrival({ ...arrival, name: e.target.value })
                 }
                 onClick={() => {
-                  setSelecting("arrival");
+                  setSelecting("departure");
                   setShowMap(true);
                 }}
               />
@@ -272,7 +263,6 @@ function PublishTrip() {
             <div className={styles.champ}>
               <input
                 type="time"
-                step="300"
                 placeholder="Horraire de depart"
                 className={styles.input}
               />
@@ -280,7 +270,6 @@ function PublishTrip() {
             <div className={styles.champ}>
               <input
                 type="time"
-                step="300"
                 placeholder="Horraire d’arrivee"
                 className={styles.input}
               />
@@ -290,20 +279,19 @@ function PublishTrip() {
                 type="date"
                 placeholder="Date du trajet"
                 className={styles.input}
-                min={today}
               />
             </div>
             <div className={styles.champ}>
               <input
                 type="number"
-                placeholder="Nombre maximum des passagers"
+                placeholder="nbr max passagers"
                 className={styles.input}
               />
             </div>
             <div className={styles.champ}>
               <input
                 type="number"
-                placeholder="Prix"
+                placeholder="prix"
                 className={styles.input}
               />
             </div>
@@ -311,7 +299,7 @@ function PublishTrip() {
               <div className={styles.champ}>
                 <input
                   type="text"
-                  placeholder="Type voiture (e.g: Peugot 3008)"
+                  placeholder="Type voiture (e.g: Peugeot 3008)"
                   className={styles.input}
                 />
               </div>
@@ -336,10 +324,10 @@ function PublishTrip() {
         <hr />
 
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Services et équipements</h3>
+          <h3 className={styles.sectionTitle}>Services et equipements</h3>
 
           <div className={styles.reservationType}>
-            <h4 className={styles.subtitle}>Type réservation</h4>
+            <h4 className={styles.subtitle}>Type reservation</h4>
             <label className={styles.radioLabel}>
               <input
                 type="radio"
@@ -348,7 +336,7 @@ function PublishTrip() {
                 checked={reservationType === "instant"}
                 onChange={() => setReservationType("instant")}
               />
-              Réservation instantanée
+              Reservation instantanee
             </label>
             <label className={styles.radioLabel}>
               <input
@@ -358,7 +346,7 @@ function PublishTrip() {
                 checked={reservationType === "request"}
                 onChange={() => setReservationType("request")}
               />
-              Réservation selon une demande
+              Reservation selon une demande
             </label>
           </div>
 
@@ -410,7 +398,7 @@ function PublishTrip() {
           <div className={styles.description}>
             <h4 className={styles.subtitle}>Ajouter une description</h4>
             <textarea
-              placeholder="Dites-nous en un peu plus"
+              placeholder="Léguer ici votre texte"
               className={styles.textarea}
             ></textarea>
           </div>
