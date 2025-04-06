@@ -136,9 +136,22 @@ export default function Reservation({ trip, user }) {
     price: trip.price,
     maxPassengers: trip.maxPassengers,
   };
+  const [passengersReserved, setPassengersReserved] = useState([]);
+  
+  const fetchPassengersReserved = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/reservation/trip/${trip._id}/passengers`);
+      const data = await res.json();
+      setPassengersReserved(data.passengers || []);
+    } catch (err) {
+      console.error("Erreur lors de la récupération des passagers :", err);
+    }
+  };
+  
 
   const handleIncrease = () => {
-    if (passengers < tripDetails.maxPassengers) {
+    fetchPassengersReserved();
+    if (passengers < (tripDetails.maxPassengers-passengersReserved.length)) {
       setPassengers(passengers + 1);
       setTotalPrice((passengers + 1) * tripDetails.price);
     }
