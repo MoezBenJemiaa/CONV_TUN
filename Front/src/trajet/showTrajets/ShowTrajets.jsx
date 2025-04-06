@@ -81,15 +81,52 @@ function ShowTrajet({ rideIds }) {
       return true;
     });
   };
-
+  const getDurationInMinutes = (ride) => {
+    try {
+      if (!ride.departureTime || !ride.arrivalTime) return Infinity;
+  
+      const [startHour, startMin] = ride.departureTime.split(":").map(Number);
+      const [endHour, endMin] = ride.arrivalTime.split(":").map(Number);
+  
+      if (
+        isNaN(startHour) || isNaN(startMin) ||
+        isNaN(endHour) || isNaN(endMin)
+      ) {
+        return Infinity; // if parsing fails
+      }
+  
+      const startTotal = startHour * 60 + startMin;
+      const endTotal = endHour * 60 + endMin;
+  
+      // Handle overnight trips
+      const duration = endTotal >= startTotal
+        ? endTotal - startTotal
+        : (24 * 60 - startTotal) + endTotal;
+  
+      return duration;
+    } catch (e) {
+      return Infinity;
+    }
+  };
+  
   const sortRides = (rides) => {
     return [...rides].sort((a, b) => {
-      if (filters.sortBy === "departEarliest")
+      if (filters.sortBy === "departEarliest") {
         return a.departureTime.localeCompare(b.departureTime);
-      if (filters.sortBy === "lowestPrice") return a.price - b.price;
+      }
+  
+      if (filters.sortBy === "lowestPrice") {
+        return a.price - b.price;
+      }
+  
+      if (filters.sortBy === "shortestTrip") {
+        return getDurationInMinutes(a) - getDurationInMinutes(b);
+      }
+  
       return 0;
     });
   };
+  
 
   const filteredAndSortedRides = sortRides(filterRides(rides));
 
