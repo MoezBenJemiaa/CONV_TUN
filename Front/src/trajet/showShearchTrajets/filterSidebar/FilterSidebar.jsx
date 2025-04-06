@@ -48,10 +48,10 @@ const FilterSidebar = ({ filters, setFilters, rides }) => {
             tout effacer
           </a>
         </div>
-        {["departEarliest", "lowestPrice", "closestDeparture", "closestArrival", "shortestTrip"].map((value, index) => (
+        {["departEarliest", "lowestPrice", "shortestTrip"].map((value, index) => (
           <label key={value}>
             <input type="radio" name="sort" checked={filters.sortBy === value} onChange={() => setFilters({ ...filters, sortBy: value })} />
-            {["Départ le plus tôt", "Prix le plus bas", "Proche du point de départ", "Proche du point d’arrivée", "Trajet le plus court"][index]}
+            {["Départ le plus tôt", "Prix le plus bas",  "Trajet le plus court"][index]}
           </label>
         ))}
       </div>
