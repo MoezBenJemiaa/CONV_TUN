@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from "./Register.module.css";
+
 import {
   FaUserCircle,
   FaFacebook,
@@ -13,7 +15,10 @@ export default function RegisterPage() {
   const [idPhotoName, setIdPhotoName] = useState(""); // State to store ID photo name
   const [showModal, setShowModal] = useState(false);
   const [selectedPlatform, setSelectedPlatform] = useState("");
-
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleIconClick = (platform) => {
     setSelectedPlatform(platform);
     setShowModal(true);
@@ -146,21 +151,44 @@ export default function RegisterPage() {
                 className={styles.input}
                 required
               />
-              <input
-                type="password"
-                name="password"
-                placeholder="Mot de passe"
-                className={styles.input}
-                required
-              />
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirmer mot de passe"
-                className={styles.input}
-                required
-              />
-
+              <div className={styles.password}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Mot de passe"
+                  className={styles.input}
+                  required
+                />
+                {password.length > 0 && (
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className={styles.passwordToggleIcon}
+                  >
+                    {showPassword ? <FiEyeOff /> : <FiEye />}
+                  </span>
+                )}
+              </div>
+              <div className={styles.password}>
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirmer mot de passe"
+                  className={styles.input}
+                  required
+                />
+                {confirmPassword.length > 0 && (
+                  <span
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className={styles.passwordToggleIcon}
+                  >
+                    {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                  </span>
+                )}
+              </div>
               <div className={styles.idPhotoSection}>
                 <label>
                   Une photo de votre pièce d'identité incluant suffisamment
@@ -222,9 +250,7 @@ export default function RegisterPage() {
                       </p>
                       <button
                         className={styles.button}
-                        style={{ margin: "10px" ,
-                          fontSize: "16px"
-                        }}
+                        style={{ margin: "10px", fontSize: "16px" }}
                         onClick={handleCloseModal}
                       >
                         Connecter

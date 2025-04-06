@@ -6,6 +6,7 @@ import UserProfile from "./Profile/UserProfile";
 import HomePage from "./Home/home";
 import Verification from "./Verification/Verification";
 import Header from "./header/header1";
+import Notification from "./Notifications/Notification";
 import ShowTrajets from "./trajet/showTrajets/ShowTrajets";
 import ShowShearchTrajets from "./trajet/showShearchTrajets/ShowShearchTrajet";
 import Pagetrajet from "./trajet/trajet/PageTrajet";
@@ -39,6 +40,7 @@ function App() {
             <Route path="/Register" element={<ProtectedRoute1><RegisterPage/></ProtectedRoute1>} />
             <Route path="/Profile/:idUser" element={<UserProfile />} />
             <Route path="/Verification" element={<ProtectedRoute> <Verification /> </ProtectedRoute>} />
+            <Route path="/notifications" element={<ProtectedRoute> <Notification /> </ProtectedRoute>} />
             <Route path="/" element={  <HomePage /> }/>
             <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>
             <Route path="/Reservations/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>

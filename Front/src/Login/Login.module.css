@@ -1,0 +1,120 @@
+/* Login.module.css */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginBox {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 35%;
+  height: fit-content;
+  justify-items: center;
+  
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #054652;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: hsla(0, 0%, 0%, 0.05);
+  color: hsla(0, 0%, 0%, 0.65);
+  height: 40px;
+  font-size: 18px;
+}
+.inputGroup input::placeholder {
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+.passwordToggleIcon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: hsla(0, 0%, 0%, 0.35);
+  font-size: 18px;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #054652;
+  font-size: 16px;
+}
+
+.checkboxGroup input {
+  margin: 0;
+}
+
+.forgotPassword {
+  color: #0496fe;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.loginButton {
+  width: 200px;
+  background-color: #0496fe;
+  color: white;
+  padding: 0.75rem;
+  margin-top: 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: center;
+}
+
+.loginButton:hover {
+  background-color: #037dd4;
+}
+
+.signupPrompt {
+  font-size: 16px;
+  color: #054652;
+  font-weight: 500;
+  margin: 0;
+}
+
+.signupPrompt a {
+  color: #0496fe; /* Blue color for the link "Inscrivez-vous" */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.signupPrompt a:hover {
+  text-decoration: underline; /* Adds underline when hovered */
+}

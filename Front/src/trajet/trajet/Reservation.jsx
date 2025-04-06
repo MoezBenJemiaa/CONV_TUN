@@ -40,28 +40,28 @@ export default function Reservation({ trip, user }) {
 
   const handleClick = async () => {
     const token = localStorage.getItem("token");
-  
+
     if (!token) {
       alert("Veuillez vous connecter pour réserver.");
       return;
     }
-  
+
     const decodedToken = JSON.parse(atob(token.split('.')[1])); 
     const userEmail = decodedToken.email;
     const userId = decodedToken.id;
-  
+
     if (userEmail === trip.ownerEmail) {
       alert("Vous ne pouvez pas réserver votre propre trajet !");
       return;
     }
-  
+
     const tripId = trip._id;
-  
+
     try {
       const response = await fetch("http://localhost:5000/reservation", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // Ensure correct header
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           tripId,
@@ -70,12 +70,12 @@ export default function Reservation({ trip, user }) {
           userid: userId
         }),
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         alert("Réservation réussie !");
-        setReservationStatus(true);  // Update reservation status after success
+        setReservationStatus(true);
       } else {
         alert(data.message || "Erreur lors de la réservation.");
       }
@@ -84,7 +84,38 @@ export default function Reservation({ trip, user }) {
       alert("Une erreur est survenue.");
     }
   };
-  
+
+  const handleCancel = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    const decodedToken = JSON.parse(atob(token.split('.')[1]));
+    const userId = decodedToken.id;
+    const tripId = trip._id;
+
+    try {
+      const response = await fetch("http://localhost:5000/reservation/cancel", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ tripId, userId }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Réservation annulée.");
+        setReservationStatus(false);
+      } else {
+        alert(data.message || "Erreur lors de l'annulation.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'annulation :", error);
+      alert("Une erreur est survenue.");
+    }
+  };
+
   const formatTripDate = (dateString) => {
     const date = new Date(dateString);
     if (isNaN(date)) return "Date invalide";
@@ -169,14 +200,24 @@ export default function Reservation({ trip, user }) {
         </div>
       </div>
 
-      <button className={styles.reservationButton} onClick={handleClick}>
+      <button
+        className={styles.reservationButton}
+        onClick={!reservationStatus ? handleClick : undefined}
+        disabled={reservationStatus}
+      >
         {reservationStatus ? (
-          <Zap className={styles.icon} /> // Show Zap icon if reservation is successful
+          <Zap className={styles.icon} />
         ) : (
-          <TbCalendarTime className={styles.icon} /> // Show calendar icon if not reserved
+          <TbCalendarTime className={styles.icon} />
         )}
         {reservationStatus ? "Réservation effectuée" : "Demande de réservation"}
       </button>
+
+      {reservationStatus && (
+        <button className={styles.cancelButton} onClick={handleCancel}>
+           Annuler la réservation
+        </button>
+      )}
     </div>
   );
 }

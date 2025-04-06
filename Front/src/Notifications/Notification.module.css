@@ -1,0 +1,102 @@
+.container {
+  background-color: #f4f4f4;
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #004650;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notificationCard {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.notificationCard:hover {
+  border: 2px solid #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+.selected {
+  background-color: white;
+}
+
+.notificationHeader {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.userIcon {
+  background-color: #ddd;
+  color: #555;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.time {
+  color: #007bff;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.seenButton {
+  background-color: #009dff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.seenButton:hover {
+  background-color: #007dcb;
+}
+
+
+
+
+

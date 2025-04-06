@@ -168,3 +168,21 @@
   object-fit: cover;
   background-color: #d4d4d4; /* fallback bg like the icon */
 }
+
+.cancelButton {
+  margin-top: 10px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+
+.cancelButton:hover {
+  background-color: #c62828;
+}
