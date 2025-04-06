@@ -20,6 +20,7 @@ function PublishTrip() {
   const [arrival, setArrival] = useState({ name: "", coordinates: null });
   const [showMap, setShowMap] = useState(false);
   const [selecting, setSelecting] = useState("");
+  const [vehicleType, setVehicleType] = useState("");
 
   const handleLocationSelect = (location) => {
     if (selecting === "departure") {
@@ -118,13 +119,13 @@ function PublishTrip() {
       (key) => preferences[key]
     );
     formData.append("preferences", selectedPreferences.join(","));
-
-    formData.append(
+    formData.append("vehicleType", vehicleType);
+    /*formData.append(
       "vehicleType",
       document.querySelector(
-        'input[placeholder="Type voiture (e.g: Peugot 3008)"]'
+        'input[placeholder="Type voiture (e.g: Peugeot 3008)"]'
       ).value
-    );
+    );*/
     formData.append(
       "vehicleColor",
       document.querySelector('input[placeholder="Couleur voiture"]').value
@@ -247,7 +248,7 @@ function PublishTrip() {
                   setArrival({ ...arrival, name: e.target.value })
                 }
                 onClick={() => {
-                  setSelecting("departure");
+                  setSelecting("arrival");
                   setShowMap(true);
                 }}
               />
@@ -301,6 +302,8 @@ function PublishTrip() {
                   type="text"
                   placeholder="Type voiture (e.g: Peugeot 3008)"
                   className={styles.input}
+                  value={vehicleType}
+                  onChange={(e) => setVehicleType(e.target.value)}
                 />
               </div>
               <div className={styles.champ}>
