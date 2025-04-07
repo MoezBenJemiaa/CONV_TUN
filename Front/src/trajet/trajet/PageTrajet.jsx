@@ -5,6 +5,7 @@ import Timeline from "./TimeLine";
 import UserDetail from "./UserDetail";
 import Passengers from "./Passengers";
 import Reservation from "./Reservation";
+import Loading from "../../loading/loading"
 
 export default function PageTrajet() {
   const { id } = useParams(); // Get trip ID from URL
@@ -18,6 +19,7 @@ export default function PageTrajet() {
         const tripRes = await fetch(`http://localhost:5000/trip/${id}`);
         const trip = await tripRes.json();
         setTripData(trip);
+
 
         // Fetch the user by email (from the trip owner)
         const userRes = await fetch(`http://localhost:5000/user/email/${trip.ownerEmail}`);
@@ -45,7 +47,7 @@ export default function PageTrajet() {
   const capitalizedDate = tripData?.date
     ? formatTripDate(tripData.date).charAt(0).toUpperCase() + formatTripDate(tripData.date).slice(1)
     : "Date non disponible";
-  if (!tripData || !userData) return <div>Chargement...</div>;
+  if (!tripData || !userData) return <Loading />;
 
   return (
     <div className={styles.pagetrajetContainer}>
