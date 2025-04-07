@@ -1,65 +1,28 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React from 'react';
+import styles from './NotFound.module.css';
 
-import LoginPage from "./Login/Login";
-import RegisterPage from "./Register/Register";
-import UserProfile from "./Profile/UserProfile";
-import HomePage from "./Home/home";
-import Verification from "./Verification/Verification";
-import Header from "./header/header1";
-import Notification from "./Notifications/Notification";
-import ShowTrajets from "./trajet/showTrajets/ShowTrajets";
-import ShowShearchTrajets from "./trajet/showShearchTrajets/ShowShearchTrajet";
-import Pagetrajet from "./trajet/trajet/PageTrajet";
-import PublishTrip from "./trajet/PublishTrip/PublishTrip";
-import ModifyProfil from "./ModifierProfil/ModifyProfil";
-import ModifyTrip from "./trajet/ModifyTrip/ModifyTrip";
-import NotFound from "./NotFound/NotFound";
-/*import Footer from "./Footer/footer";*/
+const NotFound = () => {
+  const handleGoBack = () => {
+    window.history.back(); // Uses browser's native history
+  };
 
-function ProtectedRoute({ children }) {
-  const token = localStorage.getItem("token"); // Check if token exists
-  return token ? children : <Navigate to="/login" />;
-}
-function ProtectedRoute1({ children }) {
-  const token = localStorage.getItem("token"); // Check if token exists
-  if (token) {
-    localStorage.clear();
-  }
-  return children;
-}
-
-
-
-function App() {
   return (
-    <div>
-      
-      <Router>
-        <Header/>
-        
-        <div>
-          <Routes>
-            <Route path="/login" element={<ProtectedRoute1><LoginPage /></ProtectedRoute1>} />
-            <Route path="/Register" element={<ProtectedRoute1><RegisterPage/></ProtectedRoute1>} />
-            <Route path="/Profile/:idUser" element={<UserProfile />} />
-            <Route path="/Verification" element={<ProtectedRoute> <Verification /> </ProtectedRoute>} />
-            <Route path="/modify-profile" element={<ProtectedRoute> <ModifyProfil /> </ProtectedRoute>} />
-            <Route path="/modify-trip/:id" element={<ProtectedRoute> <ModifyTrip /> </ProtectedRoute>} />
-            <Route path="/notifications" element={<ProtectedRoute> <Notification /> </ProtectedRoute>} />
-            <Route path="/" element={  <HomePage /> }/>
-            <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/> </ProtectedRoute>}/>
-            <Route path="/Reservations/:ids" element={ <ProtectedRoute> <ShowTrajets/> </ProtectedRoute>}/>
-            <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/> }/>
-            <Route path="/trip/:id" element={  <Pagetrajet/> }/>
-            <Route path="/PublishTrip" element={ <ProtectedRoute> <PublishTrip /> </ProtectedRoute>}/>
-            <Route path="*" element={<NotFound/>  } />
-          </Routes>
-          </div>
-        
-      </Router>
-    
+    <div className={styles.container}>
+      <div className={styles.errorGraphic}>🚧</div>
+      <h1 className={styles.title}>404 - Page Not Found</h1>
+      <p className={styles.message}>
+        The page you're looking for doesn't exist or was removed.
+      </p>
+      <button onClick={handleGoBack} className={styles.backButton}>
+        ← Go Back
+      </button>
+      <div className={styles.suggestions}>
+        <p>Or try:</p>
+        <a href="/" className={styles.link}>Homepage</a>
+        <a href="/contact" className={styles.link}>Contact</a>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default NotFound;
