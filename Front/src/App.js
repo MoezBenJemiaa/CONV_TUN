@@ -13,6 +13,7 @@ import Pagetrajet from "./trajet/trajet/PageTrajet";
 import PublishTrip from "./trajet/PublishTrip/PublishTrip";
 import ModifyProfil from "./ModifierProfil/ModifyProfil";
 import ModifyTrip from "./trajet/ModifyTrip/ModifyTrip";
+import NotFound from "./NotFound/NotFound";
 /*import Footer from "./Footer/footer";*/
 
 function ProtectedRoute({ children }) {
@@ -51,7 +52,7 @@ function App() {
             <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/> }/>
             <Route path="/trip/:id" element={  <Pagetrajet/> }/>
             <Route path="/PublishTrip" element={ <ProtectedRoute> <PublishTrip /> </ProtectedRoute>}/>
-            <Route path="*" element={<p>not found</p>  } />
+            <Route path="*" element={<NotFound/>  } />
           </Routes>
           </div>
         
