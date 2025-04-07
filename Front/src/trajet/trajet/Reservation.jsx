@@ -279,11 +279,11 @@ export default function Reservation({ trip, user }) {
       )}
 
 
-      {reservationStatus && (
+      {/*reservationStatus && (
         <button className={styles.cancelButton} onClick={handleCancel}>
            Annuler la réservation
         </button>
-      )}
+      )*/}
     </div>
   );
 }
