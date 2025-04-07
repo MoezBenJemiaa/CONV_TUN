@@ -1,0 +1,296 @@
+.container {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 2rem;
+  }
+  
+  hr {
+    margin: 30px 0;
+    height: 3px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0000001a;
+  }
+  
+  .card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  .title {
+    text-align: center;
+    color: #054652;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+  
+  .sectionTitle {
+    color: #054652;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .section {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+  }
+  
+  .departure {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .stopContainer {
+    background: white;
+    padding: 1rem;
+    border: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .stopContainer h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #0496fe;
+    font-size: 1.2rem;
+  }
+  
+  .stopContainer input {
+    background-color: transparent;
+    border-color: #0496fe;
+    color: hsla(0, 0%, 0%, 0.65);
+  }
+  
+  .stopContainer input::placeholder {
+    color: #0496fe;
+  }
+  
+  .addButton {
+    background: #0496fe;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.2s ease;
+  }
+  
+  .addButton:hover {
+    background: #037dd4;
+  }
+  
+  .map {
+    width: 30px;
+    height: 30px;
+    color: #0496fe;
+    position: absolute;
+    right: 15px;
+    background-color: #f0f0f0;
+    padding-left: 5px;
+    cursor: pointer;
+  }
+  
+  .champ {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .champ p {
+    margin-left: -20px;
+  }
+  
+  .champ .champ input {
+    width: 350px;
+  }
+  
+  .subtitle {
+    color: #054652;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  
+  /*.stopInputGroup {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+  }*/
+  
+  @media (min-width: 640px) {
+    .stopInputGroup {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .stopInputGroup input:last-child {
+      grid-column: span 2;
+    }
+  }
+  
+  .input {
+    width: 100%;
+    padding: 15px;
+    background-color: hsla(0, 0%, 0%, 0.05);
+    border: 2px solid #d1d5db;
+    color: hsla(0, 0%, 0%, 0.65);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 550;
+    box-sizing: border-box;
+  }
+  
+  .input:focus {
+    border: #0496fe solid 2px;
+    outline: none;
+  }
+  
+  .input[type="time"],
+  .input[type="date"] {
+    appearance: none; /* Remove native styling (works on some browsers) */
+    padding: 0.75rem;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    background-color: hsla(0, 0%, 0%, 0.05);
+    font-size: 16px;
+    color: hsla(0, 0%, 0%, 0.65);
+    cursor: pointer;
+  }
+  
+  .input[type="time"]:focus {
+    outline: none;
+    border-color: #0496fe;
+  }
+  
+  /* Chrome, Safari, Edge */
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(60%);
+    cursor: pointer;
+  }
+  
+  .reservationType, .preferences {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .checkboxLabel,
+  .radioLabel {
+    display: flex; /* important */
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 550;
+    cursor: pointer;
+    color: #054652;
+    font-size: large;
+  }
+  
+  .radioLabel {
+    margin-bottom: 0.8rem;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: 80px;
+  }
+  
+  .cancelButton {
+    width: 200px;
+    background: hsla(0, 0%, 0%, 0.1);
+    color: hsla(0, 0%, 0%, 0.65);
+    border: 2px solid #d1d5db;
+    padding: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cancelButton:hover {
+    background: hsla(0, 0%, 0%, 0.2);
+  }
+  
+  .confirmButton {
+    width: 200px;
+    background: #0496fe;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .confirmButton:hover {
+    background: #037dd4;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 0.75rem;
+    height: 100px;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  
+  .mapOverlay {
+    position: fixed; /* Fix position on the screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background: rgba(0, 0, 0, 0.2); /* Transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above everything */
+  }
+  
+  .mapContainer {
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden; /* Prevents map overflow */
+  }
