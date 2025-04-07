@@ -2,9 +2,10 @@ import { React, useState, useEffect } from "react";
 import { Zap } from "lucide-react";
 import { FaUserCircle } from "react-icons/fa";
 import { TbCalendarTime } from "react-icons/tb";
-import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
+import { FiPlusCircle, FiMinusCircle, FiEdit2 } from "react-icons/fi";
 import TripMap from "./TripMap";
 import styles from "./Reservation.module.css";
+import { MdWidthFull } from "react-icons/md";
 
 export default function Reservation({ trip, user }) {
   const [passengers, setPassengers] = useState(1);
@@ -249,9 +250,9 @@ export default function Reservation({ trip, user }) {
       </div>
 
       {isOwner ? (
-        <a href={`/modify-trip/${trip._id}`} className={styles.modifyButton}>
+        <a href={`/modify-trip/${trip._id}`} className={styles.modifyButton} >
           <button>
-            <TbCalendarTime className={styles.icon} />
+            <FiEdit2 className={styles.icon} />
             Modifier le trajet
           </button>
         </a>
