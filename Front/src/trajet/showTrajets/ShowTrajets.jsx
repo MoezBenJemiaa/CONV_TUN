@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"; // Import for URL params
 import axios from "axios";
 import CarpoolCard from "./CarpoolCard/CarpoolCard";
 import FilterSidebar from "./filterSidebar/FilterSidebar";
+import Loading from "../../loading/loading"
 import styles from "./ShowTrajet.module.css";
 
 function ShowTrajet({ rideIds }) {
@@ -136,7 +137,7 @@ function ShowTrajet({ rideIds }) {
 
   const filteredAndSortedRides = sortRides(filterRides(rides));
 
-  if (loading) return <p>Loading rides...</p>;
+  if (loading) return <Loading />;
 
   return (
     <div className={styles.trajetContainer}>
