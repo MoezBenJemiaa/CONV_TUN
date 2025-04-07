@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./UserProfile.module.css";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaCheckCircle, FaMusic, FaRegCommentDots } from "react-icons/fa";
+import { CigaretteOff } from 'lucide-react';
 import { IoChatboxEllipses } from "react-icons/io5";
-import { FaMusic } from "react-icons/fa";
 import { MdDoNotDisturb } from "react-icons/md";
 
 function UserProfile() {
@@ -21,13 +21,17 @@ function UserProfile() {
         setUser(userData);
 
         // Fetch trips using user email
-        const tripsRes = await fetch(`http://localhost:5000/trip/user/${userData.email}`);
+        const tripsRes = await fetch(
+          `http://localhost:5000/trip/user/${userData.email}`
+        );
         const trips = await tripsRes.json();
 
         setTripCount(trips.length);
 
         if (trips.length > 0) {
-          const sorted = [...trips].sort((a, b) => new Date(a.date) - new Date(b.date));
+          const sorted = [...trips].sort(
+            (a, b) => new Date(a.date) - new Date(b.date)
+          );
           setFirstTripDate(sorted[0].date);
         }
       } catch (error) {
@@ -49,31 +53,39 @@ function UserProfile() {
     <div className={styles.card}>
       <div className={styles.profileHeader}>
         {user.profilePic ? (
-          <img src={`data:image/jpeg;base64,${user.profilePic}`} alt="Profile" className={styles.profileimg} />
+          <img
+            src={`data:image/jpeg;base64,${user.profilePic}`}
+            alt="Profile"
+            className={styles.profileimg}
+          />
         ) : (
           <FaUserCircle className={styles.profileIcon} />
         )}
         <div>
-          <h1 className={styles.title}>{user.firstName+" "+user.lastName}</h1>
-          <p className={styles.username}>Age: {user.age}</p>
+          <h1 className={styles.title}>
+            {user.firstName + " " + user.lastName}
+          </h1>
+          <p className={styles.username}>{user.age} ans</p>
         </div>
       </div>
 
       <div className={styles.divider}></div>
 
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>{user.firstName} a un Profil Vérifié</h2>
+        <h2 className={styles.sectionTitle}>
+          {user.firstName} a un Profil Vérifié
+        </h2>
         <ul className={styles.verificationList}>
           <li className={styles.verificationItem}>
-            <input type="checkbox" checked readOnly className={styles.checkbox} />
+            <FaCheckCircle className={styles.checkbox} />
             <label>Pièce d'identité vérifiée</label>
           </li>
           <li className={styles.verificationItem}>
-            <input type="checkbox" checked readOnly className={styles.checkbox} />
+            <FaCheckCircle className={styles.checkbox} />
             <label>Adresse e-mail vérifiée</label>
           </li>
           <li className={styles.verificationItem}>
-            <input type="checkbox" checked readOnly className={styles.checkbox} />
+            <FaCheckCircle className={styles.checkbox} />
             <label>Numéro de téléphone vérifié</label>
           </li>
         </ul>
@@ -82,10 +94,12 @@ function UserProfile() {
       <div className={styles.divider}></div>
 
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Faites connaissance avec {user.userName}</h2>
+        <h2 className={styles.sectionTitle}>
+          Faites connaissance avec {user.firstName}
+        </h2>
         <ul className={styles.preferencesList}>
           <li className={styles.preferenceItem}>
-            <IoChatboxEllipses className={styles.chatIcon} />
+            <FaRegCommentDots className={styles.chatIcon} />
             <label>J'aime bien discuter quand je me sens à l'aise</label>
           </li>
           <li className={styles.preferenceItem}>
@@ -93,7 +107,7 @@ function UserProfile() {
             <label>Musique tout le long !</label>
           </li>
           <li className={styles.preferenceItem}>
-            <MdDoNotDisturb className={styles.noSmokingIcon} />
+            <CigaretteOff className={styles.noSmokingIcon} />
             <label>Pas de cigarette, svp</label>
           </li>
         </ul>
@@ -103,11 +117,13 @@ function UserProfile() {
 
       <div className={styles.stats}>
         <p className={styles.tripCount}>
-          {tripCount} trajet{tripCount > 1 ? "s" : ""} publié{tripCount > 1 ? "s" : ""}
+          {tripCount} trajet{tripCount > 1 ? "s" : ""} publié
+          {tripCount > 1 ? "s" : ""}
         </p>
         {firstTripDate && (
           <p className={styles.PremierTrajet}>
-            A publié son premier trajet en {formatDateToFrenchMonthYear(firstTripDate)}
+            A publié son premier trajet en{" "}
+            {formatDateToFrenchMonthYear(firstTripDate)}
           </p>
         )}
       </div>
