@@ -5,6 +5,7 @@ import CarpoolCard from "./CarpoolCard/CarpoolCard";
 import FilterSidebar from "./filterSidebar/FilterSidebar";
 import styles from "./ShowShearchTrajets.module.css";
 import LocationSelectorMap from "../PublishTrip/LocationSelectorMap";
+import Loading from "../../loading/loading";
 import { CiMap } from "react-icons/ci";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -202,7 +203,7 @@ function ShowTrajet({ rideIds }) {
 
   const filteredAndSortedRides = sortRides(filterRides(rides));
 
-  if (loading) return <p>Loading rides...</p>;
+  if (loading) return <Loading />;
 
   return (
     <div className={styles.trajetContainer}>
