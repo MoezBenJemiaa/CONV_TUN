@@ -81,7 +81,7 @@ function UserProfile() {
           <p className={styles.username}>{user.age} ans</p>
           {isOwner && (
             <a href={`/modify-profile`} className={styles.editLink}>
-              Modifier mon profil
+              Modifier profil
             </a>
           )}
 
@@ -96,16 +96,12 @@ function UserProfile() {
         </h2>
         <ul className={styles.verificationList}>
           <li className={styles.verificationItem}>
-            <FaCheckCircle className={styles.checkbox} />
+            <FaCheckCircle className={styles.icon} />
             <label>Pièce d'identité vérifiée</label>
           </li>
           <li className={styles.verificationItem}>
-            <FaCheckCircle className={styles.checkbox} />
+            <FaCheckCircle className={styles.icon} />
             <label>Adresse e-mail vérifiée</label>
-          </li>
-          <li className={styles.verificationItem}>
-            <FaCheckCircle className={styles.checkbox} />
-            <label>Numéro de téléphone vérifié</label>
           </li>
         </ul>
       </div>
@@ -118,15 +114,15 @@ function UserProfile() {
         </h2>
         <ul className={styles.preferencesList}>
           <li className={styles.preferenceItem}>
-            <FaRegCommentDots className={styles.chatIcon} />
+            <FaRegCommentDots className={styles.icon} />
             <label>J'aime bien discuter quand je me sens à l'aise</label>
           </li>
           <li className={styles.preferenceItem}>
-            <FaMusic className={styles.musicIcon} />
+            <FaMusic className={styles.icon} />
             <label>Musique tout le long !</label>
           </li>
           <li className={styles.preferenceItem}>
-            <CigaretteOff className={styles.noSmokingIcon} />
+            <CigaretteOff className={styles.icon} />
             <label>Pas de cigarette, svp</label>
           </li>
         </ul>
@@ -146,6 +142,7 @@ function UserProfile() {
           </p>
         )}
       </div>
+      <div className={styles.divider}></div>
     </div>
   );
 }
