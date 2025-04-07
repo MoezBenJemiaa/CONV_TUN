@@ -1,35 +1,65 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Verification.css';
+import axios from 'axios';
 
 const ConfirmationCode = () => {
   const inputs = useRef([]);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    // Get email from token in localStorage
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decoded = JSON.parse(atob(token.split(".")[1]));
+      setEmail(decoded.email);
+
+      // Send verification code when the component loads
+      axios.post("http://localhost:5000/user/send-code", { email })
+        .then(() => console.log("Code envoyé à l'email:", email))
+        .catch(err => console.error("Erreur envoi code:", err));
+    }
+  }, []);
 
   const handleInputChange = (e, index) => {
-    // Remove any non-digit characters
     e.target.value = e.target.value.replace(/\D/g, '');
-
-    // If a digit is entered, move focus to the next input
     if (e.target.value && index < inputs.current.length - 1) {
       inputs.current[index + 1].focus();
     }
   };
 
   const handleKeyDown = (e, index) => {
-    // If Backspace is pressed and the input is empty, move focus to the previous input
     if (e.key === 'Backspace' && !e.target.value && index > 0) {
       inputs.current[index - 1].focus();
     }
   };
 
-  const handleValidation = () => {
-    // Collect the code from the input fields
+  const handleValidation = async () => {
     const code = inputs.current.map(input => input.value).join('');
-    console.log('Code entered:', code);
-    if (code==="1234") {
+    try {
+      const response = await axios.post("http://localhost:5000/user/verify-code", {
+        email,
+        code
+      });
+
+      if (response.data.success) {
+        alert("Vérification réussie !");
         window.location.href = "/";
       } else {
         alert("Code incorrect");
       }
+    } catch (error) {
+      alert("Erreur lors de la vérification");
+    }
+  };
+
+  const handleResendCode = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/user/send-code", { email });
+      alert("Code renvoyé !");
+    } catch (err) {
+      alert("Erreur lors de la réexpédition du code");
+    }
   };
 
   return (
@@ -54,7 +84,9 @@ const ConfirmationCode = () => {
             />
           ))}
         </div>
-        <a href="#" className="resendLink">envoyer de nouveau un code</a>
+        <a href="#" className="resendLink" onClick={handleResendCode}>
+          envoyer de nouveau un code
+        </a>
       </div>
       <button className="validateButton" onClick={handleValidation}>
         Valider
