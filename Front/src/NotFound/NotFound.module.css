@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+  }
+  
+  .errorGraphic {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: bounce 2s infinite;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 500px;
+    margin-bottom: 2rem;
+  }
+  
+  .backButton {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 2rem;
+  }
+  
+  .backButton:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .suggestions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .link {
+    color: #3498db;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  
+  .link:hover {
+    background: #e8f4fc;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
