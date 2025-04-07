@@ -8,6 +8,19 @@ import { MdDoNotDisturb } from "react-icons/md";
 
 function UserProfile() {
   const { idUser } = useParams();
+  const token = localStorage.getItem("token");
+  let isOwner = false;
+
+  if (token) {
+  try {
+    const decoded = JSON.parse(atob(token.split(".")[1]));
+    if (decoded.id === idUser) {
+      isOwner = true;
+    }
+  } catch (e) {
+    console.error("Failed to decode token", e);
+  }
+  }
   const [user, setUser] = useState(null);
   const [tripCount, setTripCount] = useState(0);
   const [firstTripDate, setFirstTripDate] = useState(null);
@@ -66,6 +79,12 @@ function UserProfile() {
             {user.firstName + " " + user.lastName}
           </h1>
           <p className={styles.username}>{user.age} ans</p>
+          {isOwner && (
+            <a href={`/modify-profile`} className={styles.editLink}>
+              Modifier mon profil
+            </a>
+          )}
+
         </div>
       </div>
 
