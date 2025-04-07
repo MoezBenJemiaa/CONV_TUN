@@ -11,6 +11,7 @@ import ShowTrajets from "./trajet/showTrajets/ShowTrajets";
 import ShowShearchTrajets from "./trajet/showShearchTrajets/ShowShearchTrajet";
 import Pagetrajet from "./trajet/trajet/PageTrajet";
 import PublishTrip from "./trajet/PublishTrip/PublishTrip";
+import ModifyProfil from "./ModifierProfil/ModifyProfil";
 /*import Footer from "./Footer/footer";*/
 
 function ProtectedRoute({ children }) {
@@ -40,12 +41,13 @@ function App() {
             <Route path="/Register" element={<ProtectedRoute1><RegisterPage/></ProtectedRoute1>} />
             <Route path="/Profile/:idUser" element={<UserProfile />} />
             <Route path="/Verification" element={<ProtectedRoute> <Verification /> </ProtectedRoute>} />
+            <Route path="/modify-profile" element={<ProtectedRoute> <ModifyProfil /> </ProtectedRoute>} />
             <Route path="/notifications" element={<ProtectedRoute> <Notification /> </ProtectedRoute>} />
             <Route path="/" element={  <HomePage /> }/>
-            <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>
-            <Route path="/Reservations/:ids" element={ <ProtectedRoute> <ShowTrajets/  > </ProtectedRoute>}/>
-            <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/  > }/>
-            <Route path="/trip/:id" element={  <Pagetrajet/  > }/>
+            <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/> </ProtectedRoute>}/>
+            <Route path="/Reservations/:ids" element={ <ProtectedRoute> <ShowTrajets/> </ProtectedRoute>}/>
+            <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/> }/>
+            <Route path="/trip/:id" element={  <Pagetrajet/> }/>
             <Route path="/PublishTrip" element={ <ProtectedRoute> <PublishTrip /> </ProtectedRoute>}/>
           </Routes>
           </div>
