@@ -54,10 +54,6 @@
   overflow: hidden; /* Prevents map overflow */
 }
 
-.ciMap {
-  width: 35px;
-  height: 35px;
-}
 
 .mapOverlay {
   position: fixed;
@@ -73,15 +69,15 @@
 }
 
 .form {
-  margin: 20px auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 1000px;
-  height: 60px;
-  background-color: #F1F1F1;
+  height: 50px;
+  margin-bottom: 30px;
+  background-color: hsl(0, 0%, 100%);
   border-radius: 40px;
-  box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .inputRow {
@@ -95,12 +91,15 @@
 .inputGroup {
   display: flex;
   align-items: center;
+  height: 30px;
   gap: 10px;
   flex: 1;
+  padding-left: 10px;
+  border-left: hsla(0, 0%, 0%, 0.2) 2px solid;
+  
 }
-
-.inputGroup span svg {
-  color: black;
+.inputGroup:first-of-type {
+  border: none;
 }
 
 .inputGroup input {
@@ -110,21 +109,38 @@
   font-size: 1rem;
   background-color: transparent;
 }
+.inputGroup input:hover {
+  border: none;
+}
 
 .form button {
-  height: 60px;
+  width: 150px;
+  height: 50px;
   margin-right: 0;
   padding: 1rem;
   outline: none;
   border: none;
   font-size: 1rem;
   color: white;
-  background-color: #2EA0FD;
-  border-radius: 40px;
+  background-color: #2ea0fd;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-sizing: border-box;
 }
 
 .form button:hover {
-  background-color: #0049a9;
+  background-color: #037dd4;
+}
+
+.icon {
+  width: 27px;
+  height: 27px;
+  color: #2ea0fd;
+}
+
+.userIcon {
+  font-size: 25px;
+  color: #2ea0fd;
 }

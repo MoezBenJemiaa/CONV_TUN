@@ -7,15 +7,9 @@ import styles from "./ShowShearchTrajets.module.css";
 import LocationSelectorMap from "../PublishTrip/LocationSelectorMap";
 import Loading from "../../loading/loading";
 import { CiMap } from "react-icons/ci";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagic,
-  faGem,
-  faGlobeAsia,
-  faCircle,
-  faCalendarDays,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { MapIcon } from "lucide-react";
+import { FaRegUser } from "react-icons/fa";
+
 
 function ShowTrajet({ rideIds }) {
   const { ids } = useParams(); // Get ride IDs from URL
@@ -211,8 +205,8 @@ function ShowTrajet({ rideIds }) {
         <form className={styles.form} onSubmit={handleSearch}>
           <div className={styles.inputRow}>
             <div className={styles.inputGroup}>
-              <CiMap
-                className={styles.ciMap}
+              <MapIcon
+                className={styles.icon}
                 onClick={() => {
                   setSelecting("departure");
                   setShowMap(true);
@@ -222,13 +216,16 @@ function ShowTrajet({ rideIds }) {
                 type="text"
                 placeholder="Départ"
                 value={departure.name}
-                disabled
+                onClick={() => {
+                  setSelecting("departure");
+                  setShowMap(true);
+                }}
               />
             </div>
 
             <div className={styles.inputGroup}>
-              <CiMap
-                className={styles.ciMap}
+              <MapIcon 
+                className={styles.icon}
                 onClick={() => {
                   setSelecting("arrival");
                   setShowMap(true);
@@ -238,14 +235,15 @@ function ShowTrajet({ rideIds }) {
                 type="text"
                 placeholder="Arrivée"
                 value={arrival.name}
-                disabled
+                onClick={() => {
+                  setSelecting("departure");
+                  setShowMap(true);
+                }}
               />
             </div>
 
             <div className={styles.inputGroup}>
-              <span>
-                <FontAwesomeIcon icon={faCalendarDays} />
-              </span>
+      
               <input
                 type="date"
                 className={styles.dateInput}
@@ -254,9 +252,7 @@ function ShowTrajet({ rideIds }) {
             </div>
 
             <div className={styles.inputGroup}>
-              <span>
-                <FontAwesomeIcon icon={faUser} />
-              </span>
+              <FaRegUser className={styles.userIcon} />
               <input
                 type="number"
                 id="seatsInput"
