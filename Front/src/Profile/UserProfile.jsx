@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./UserProfile.module.css";
 import { FaUserCircle, FaCheckCircle, FaMusic, FaRegCommentDots } from "react-icons/fa";
 import { CigaretteOff } from 'lucide-react';
+import Loading from "../loading/loading"
 import { IoChatboxEllipses } from "react-icons/io5";
 import { MdDoNotDisturb } from "react-icons/md";
 
@@ -60,7 +61,7 @@ function UserProfile() {
     return date.toLocaleDateString("fr-FR", { year: "numeric", month: "long" });
   };
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <p><Loading/></p>;
 
   return (
     <div className={styles.card}>
