@@ -12,6 +12,7 @@ import ShowShearchTrajets from "./trajet/showShearchTrajets/ShowShearchTrajet";
 import Pagetrajet from "./trajet/trajet/PageTrajet";
 import PublishTrip from "./trajet/PublishTrip/PublishTrip";
 import ModifyProfil from "./ModifierProfil/ModifyProfil";
+import ModifyTrip from "./trajet/ModifyTrip/ModifyTrip";
 /*import Footer from "./Footer/footer";*/
 
 function ProtectedRoute({ children }) {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/Profile/:idUser" element={<UserProfile />} />
             <Route path="/Verification" element={<ProtectedRoute> <Verification /> </ProtectedRoute>} />
             <Route path="/modify-profile" element={<ProtectedRoute> <ModifyProfil /> </ProtectedRoute>} />
+            <Route path="/modify-trip/:id" element={<ProtectedRoute> <ModifyTrip /> </ProtectedRoute>} />
             <Route path="/notifications" element={<ProtectedRoute> <Notification /> </ProtectedRoute>} />
             <Route path="/" element={  <HomePage /> }/>
             <Route path="/MesTrajets/:ids" element={ <ProtectedRoute> <ShowTrajets/> </ProtectedRoute>}/>
@@ -49,6 +51,7 @@ function App() {
             <Route path="/Trajets/:ids" element={  <ShowShearchTrajets/> }/>
             <Route path="/trip/:id" element={  <Pagetrajet/> }/>
             <Route path="/PublishTrip" element={ <ProtectedRoute> <PublishTrip /> </ProtectedRoute>}/>
+            <Route path="*" element={<p>not found</p>  } />
           </Routes>
           </div>
         
