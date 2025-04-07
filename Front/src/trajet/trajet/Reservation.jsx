@@ -163,6 +163,41 @@ export default function Reservation({ trip, user }) {
       setTotalPrice((passengers - 1) * tripDetails.price);
     }
   };
+  const [isOwner, setIsOwner] = useState(false);
+  useEffect(() => {
+    const checkReservationStatus = async () => {
+      const token = localStorage.getItem("token");
+      const decodedToken = token ? JSON.parse(atob(token.split(".")[1])) : null;
+  
+      if (decodedToken) {
+        const userId = decodedToken.id;
+        const userEmail = decodedToken.email;
+        const tripId = trip._id;
+  
+        // Check ownership
+        if (userEmail === trip.ownerEmail) {
+          setIsOwner(true);
+          return; // No need to check reservation if it's the owner
+        }
+  
+        try {
+          const response = await fetch(
+            `http://localhost:5000/reservation/check?tripId=${tripId}&userId=${userId}`
+          );
+          const data = await response.json();
+  
+          if (data.reserved) {
+            setReservationStatus(true);
+          }
+        } catch (error) {
+          console.error("Error checking reservation status:", error);
+        }
+      }
+    };
+  
+    checkReservationStatus();
+  }, [trip._id, trip.ownerEmail]);
+  
 
   return (
     <div className={styles.reservationContainer}>
@@ -213,18 +248,36 @@ export default function Reservation({ trip, user }) {
         </div>
       </div>
 
-      <button
-        className={styles.reservationButton}
-        onClick={!reservationStatus ? handleClick : undefined}
-        disabled={reservationStatus}
-      >
-        {reservationStatus ? (
-          <Zap className={styles.icon} />
-        ) : (
-          <TbCalendarTime className={styles.icon} />
-        )}
-        {reservationStatus ? "Réservation effectuée" : "Demande de réservation"}
-      </button>
+      {isOwner ? (
+        <a href={`/modify-trip/${trip._id}`} className={styles.modifyButton}>
+          <button>
+            <TbCalendarTime className={styles.icon} />
+            Modifier le trajet
+          </button>
+        </a>
+      ) : (
+        <>
+          <button
+            className={styles.reservationButton}
+            onClick={!reservationStatus ? handleClick : undefined}
+            disabled={reservationStatus}
+          >
+            {reservationStatus ? (
+              <Zap className={styles.icon} />
+            ) : (
+              <TbCalendarTime className={styles.icon} />
+            )}
+            {reservationStatus ? "Réservation effectuée" : "Demande de réservation"}
+          </button>
+
+          {reservationStatus && (
+            <button className={styles.cancelButton} onClick={handleCancel}>
+              Annuler la réservation
+            </button>
+          )}
+        </>
+      )}
+
 
       {reservationStatus && (
         <button className={styles.cancelButton} onClick={handleCancel}>
