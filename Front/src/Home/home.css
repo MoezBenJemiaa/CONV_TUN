@@ -1,166 +1,197 @@
 /* Global Styles */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Car Image Styles */
+.carimg {
+  height: 300px;
+  width: 100%;
+  z-index: 1;
+}
 
+.carimg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Form Styles */
+.form {
+  margin: -25px auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1000px;
+  height: 50px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.inputRow {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  gap: 10px;
+  flex: 1;
+  padding-left: 10px;
+  border-left: hsla(0, 0%, 0%, 0.2) 2px solid;
   
-  /* Car Image Styles */
-  .carimg {
-    height: 350px;
-  }
+}
+.inputGroup:first-of-type {
+  border: none;
+}
+
+.inputGroup input {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  background-color: transparent;
+}
+.inputGroup input:hover {
+  border: none;
+}
+
+.form button {
+  width: 150px;
+  height: 50px;
+  margin-right: 0;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: #2ea0fd;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form button:hover {
+  background-color: #037dd4;
+}
+
+/* Features Styles */
+.features {
+  margin: 50px;
+  width: 70%;
+  align-self: center;
+}
+
+.features_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feat {
+  text-align: left;
+  padding: 20px;
+  width: 400px;
+}
+
+
+.feat h3 {
+  font-weight: 600;
+  color: #005f73;
+}
+
+.feat p {
+  line-height: 1.8;
+  color: hsla(0, 0%, 0%, 0.6);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* About Styles */
+.about {
+  width: 100%;
+  height: 400px;
+  background-color: hsla(0, 0%, 0%, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
   
-  .carimg img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  /* Form Styles */
-  .form {
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 1000px;
-    height: 60px;
-    background-color: #F1F1F1;
-    border-radius: 40px;
-    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
-  }
-  
-  .inputRow {
-    padding-left: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .inputGroup {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-  }
-  
-  .inputGroup span svg {
-    color: black;
-  }
-  
-  .inputGroup input {
-    width: 100%;
-    outline: none;
-    border: none;
-    font-size: 1rem;
-    background-color: transparent;
-  }
-  
-  .form button {
-    height: 60px;
-    margin-right: 0;
-    padding: 1rem;
-    outline: none;
-    border: none;
-    font-size: 1rem;
-    color: white;
-    background-color: #2EA0FD;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form button:hover {
-    background-color: #0049a9;
-  }
-  
-  /* Features Styles */
-  .features {
-    margin: 50px;
-  }
-  
-  .features .features_container {
-    display: flex;
-    justify-content: space-between;
-    margin: 100px auto;
-  }
-  
-  .feat {
-    text-align: left;
-    padding: 20px;
-    width: 400px;
-  }
-  
-  .feat svg {
-    color: #2EA0FD;
-  }
-  
-  .feat h3 {
-    font-weight: 600;
-    margin: 30px 0;
-  }
-  
-  .feat p {
-    line-height: 1.8;
-    color: #777;
-    font-size: 17px;
-  }
-  
-  /* About Styles */
-  .about .about_container {
-    padding: 100px;
-    height: 400px;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .about .about_container img {
-    width: 500px;
-    height: 300px;
-    border-radius: 30px;
-    object-fit: cover;
-  }
-  
-  .ktiba {
-    width: 400px;
-  }
-  
-  .ktiba h1 {
-    font-weight: 600;
-    margin: 30px 0;
-    color: #2EA0FD;
-    text-align: center;
-  }
-  
-  .ktiba p {
-    text-align: center;
-    line-height: 1.5;
-    color: #777;
-  }
-  .mapOverlay {
-    position: fixed;  /* Fix position on the screen */
-    top: 0;
-    left: 0;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    background: rgba(0, 0, 0, 0.2); /* Transparent dark background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it's above everything */
-  }
-  
-  .mapContainer {
-    width: 80%;
-    max-width: 800px;
-    height: 500px;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden; /* Prevents map overflow */
-  }
-.CiMap{
-    width: 35px;
-    height: 35px;
-  }
-  
+}
+
+.about  img {
+  width: 450px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.description {
+  width: 400px;
+  text-align: left;
+}
+
+.description h2 {
+  font-weight: 600;
+  margin: 30px 0;
+  color: #2ea0fd;
+  text-align: left;
+  font-size: 28px;
+}
+
+.description p {
+  line-height: 1.5;
+  color: #2ea0fd;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+.mapOverlay {
+  position: fixed; /* Fix position on the screen */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background: rgba(0, 0, 0, 0.2); /* Transparent dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above everything */
+}
+
+.mapContainer {
+  width: 80%;
+  max-width: 800px;
+  height: 500px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden; /* Prevents map overflow */
+}
+
+.icon {
+  width: 27px;
+  height: 27px;
+  color: #2ea0fd;
+}
+
+.userIcon {
+  font-size: 25px;
+  color: #2ea0fd;
+}
+
+.feat .icon {
+  font-size: 35px;
+}
