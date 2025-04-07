@@ -186,3 +186,15 @@
 .cancelButton:hover {
   background-color: #c62828;
 }
+.modifyButton button {
+  background-color: #ffc107;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.modifyButton button:hover {
+  background-color: #e0a800;
+}
