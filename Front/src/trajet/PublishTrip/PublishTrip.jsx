@@ -285,14 +285,14 @@ function PublishTrip() {
             <div className={styles.champ}>
               <input
                 type="number"
-                placeholder="nbr max passagers"
+                placeholder="Nombre max des passagers"
                 className={styles.input}
               />
             </div>
             <div className={styles.champ}>
               <input
                 type="number"
-                placeholder="prix"
+                placeholder="Prix"
                 className={styles.input}
               />
             </div>
