@@ -82,7 +82,8 @@ npm start
 
 ## ✍️ Authors
 
-- 🧑‍💻 *Your Name Here* – Developer & Designer
+- 🧑‍💻 Moez Ben Jemiaa – Developer & Designer
+- 🧑‍💻 Rostom torki – Developer & Designer
 
 ---
 
