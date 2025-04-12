@@ -83,7 +83,7 @@ npm start
 ## ✍️ Authors
 
 - 🧑‍💻 Moez Ben Jemiaa – Developer & Designer
-- 🧑‍💻 Rostom torki – Developer & Designer
+- 🧑‍💻 Rostom Turki – Developer & Designer
 
 ---
 
